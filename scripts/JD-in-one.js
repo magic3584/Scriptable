@@ -21,7 +21,7 @@ const size = {
   chartDay: 9, // 京豆K线图日期文字大小
   chartTopPadding: 20 // 京豆K线图顶边距
 };
-const showBaitiao = true; // 是否显示白条还款信息
+const showBaitiao = false; // 是否显示白条还款信息
 const showPackage = false; // 是否显示包裹信息
 const chartTextColor = Color.dynamic(new Color('000000', 1),new Color('ffffff', 1),); // 京豆K线图浅色和深色模式对应的京豆数据文字颜色，注意切换模式以后颜色不会立即刷新，等它自动刷新就正常了
 // ####################################
@@ -633,7 +633,7 @@ async function createChart() {
     topPadding = topPadding + 10;
   }
   const chartStr = await chartConfig(labels, data, chartTextSize, topPadding);
-  const url = `https://quickchart.io/chart?w=${400 * size.SC}&h=${size.chartHeight * size.SC}&f=png&c=${encodeURIComponent(chartStr)}`;
+  const url = `https://quickchart.io/chart?w=${650 * size.SC}&h=${size.chartHeight * size.SC}&f=png&c=${encodeURIComponent(chartStr)}`;
   return await getImage(url);
 }
 
